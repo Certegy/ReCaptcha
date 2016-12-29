@@ -10,18 +10,18 @@ namespace ReCaptcha
     {
         private const string RecaptchaApi = "http://www.google.com/recaptcha/api/verify";
 
-        private readonly IActionExecutingContextAdapterFactory _actionExecutingContextAdapterFactory;
+        private readonly Func<ActionExecutingContext, IActionExecutingContextAdapter> _actionExecutingContextAdapterFunc;
         private readonly Func<HttpClient> _httpClientFunc;
 
-        public ReCaptchaAttribute() : this(new ActionExecutingContextAdapterFactory(), () => new HttpClient())
+        public ReCaptchaAttribute() : this(context => new DefaultActionExecutingContextAdapter(context), () => new HttpClient())
         {
         }
 
         public ReCaptchaAttribute(
-            IActionExecutingContextAdapterFactory actionExecutingContextAdapterFactory,
+            Func<ActionExecutingContext, IActionExecutingContextAdapter> actionExecutingContextAdapterFunc,
             Func<HttpClient> httpClientFunc)
         {
-            _actionExecutingContextAdapterFactory = actionExecutingContextAdapterFactory;
+            _actionExecutingContextAdapterFunc = actionExecutingContextAdapterFunc;
             _httpClientFunc = httpClientFunc;
         }
 
@@ -33,7 +33,7 @@ namespace ReCaptcha
             if (string.IsNullOrWhiteSpace(reCaptchaSecretKey))
                 throw new Exception("Missing ReCaptcha SecretKey");
 
-            var actionExecutingContextAdapter = _actionExecutingContextAdapterFactory.CreateFrom(filterContext);
+            var actionExecutingContextAdapter = _actionExecutingContextAdapterFunc.Invoke(filterContext);
 
             var postData = 
                 $"&privatekey={reCaptchaSecretKey}" +

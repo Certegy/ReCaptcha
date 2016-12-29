@@ -15,15 +15,13 @@ namespace Recaptcha.UnitTests.GivenAReCaptchaFormSubmission
         protected ReCaptchaAttributeTest()
         {
             ReCaptchaResourceSettingsLocator.Register(new TestReCaptchaResourceSettings());
-            var actionExecutingContextAdapterFactory = Substitute.For<IActionExecutingContextAdapterFactory>();
             var actionExecutingContextAdapter = Substitute.For<IActionExecutingContextAdapter>();
             actionExecutingContextAdapter.ReCaptchaChallengeField.Returns("0AA41D54-DA6D-4BA1-9BF0-81AB478B663F");
             actionExecutingContextAdapter.ReCaptchaResponseField.Returns("71A4C469-8037-446F-A6F4-0114DDFE6984");
             _testController = new TestController();
             actionExecutingContextAdapter.Controller.Returns(_testController);
-            actionExecutingContextAdapterFactory.CreateFrom(Arg.Any<ActionExecutingContext>()).Returns(actionExecutingContextAdapter);
             _testHttpMessageHandler = new TestHttpMessageHandler();
-            _sut = new ReCaptchaAttribute(actionExecutingContextAdapterFactory, () => new HttpClient(_testHttpMessageHandler));
+            _sut = new ReCaptchaAttribute(context => actionExecutingContextAdapter, () => new HttpClient(_testHttpMessageHandler));
         }
     }
 }
