@@ -5,16 +5,21 @@ namespace ReCaptcha
 {
     public class HttpClientAdapter : IHttpClient
     {
-        private readonly HttpClient wrapped;
+        private readonly HttpClient _wrapped;
 
         public HttpClientAdapter()
         {
-            wrapped = new HttpClient();
+            _wrapped = new HttpClient();
+        }
+
+        public HttpClientAdapter(HttpMessageHandler handler)
+        {
+            _wrapped = new HttpClient(handler);
         }
 
         public Task<HttpResponseMessage> PostAsync(string requestUri, HttpContent content)
         {
-            return wrapped.PostAsync(requestUri, content);
+            return _wrapped.PostAsync(requestUri, content);
         }
     }
 }

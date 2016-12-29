@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReCaptcha", "ReCaptcha\ReCaptcha.csproj", "{10E22D6A-B002-40A9-B344-D73FE12BC23C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recaptcha.UnitTests", "Recaptcha.UnitTests\Recaptcha.UnitTests.csproj", "{117BF9BC-C00F-46A7-BC89-624241C7E759}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{10E22D6A-B002-40A9-B344-D73FE12BC23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10E22D6A-B002-40A9-B344-D73FE12BC23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10E22D6A-B002-40A9-B344-D73FE12BC23C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117BF9BC-C00F-46A7-BC89-624241C7E759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117BF9BC-C00F-46A7-BC89-624241C7E759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117BF9BC-C00F-46A7-BC89-624241C7E759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117BF9BC-C00F-46A7-BC89-624241C7E759}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
