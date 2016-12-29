@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Net.Http;
+using System.Web.Mvc;
 using NSubstitute;
 using Recaptcha.UnitTests.Helpers;
 using ReCaptcha;
@@ -21,11 +22,8 @@ namespace Recaptcha.UnitTests.GivenAReCaptchaFormSubmission
             _testController = new TestController();
             actionExecutingContextAdapter.Controller.Returns(_testController);
             actionExecutingContextAdapterFactory.CreateFrom(Arg.Any<ActionExecutingContext>()).Returns(actionExecutingContextAdapter);
-            var httpClientFactory = Substitute.For<IHttpClientFactory>();
             _testHttpMessageHandler = new TestHttpMessageHandler();
-            IHttpClient httpClient = new HttpClientAdapter(_testHttpMessageHandler);
-            httpClientFactory.CreateHttpClient().Returns(httpClient);
-            _sut = new ReCaptchaAttribute(actionExecutingContextAdapterFactory, httpClientFactory);
+            _sut = new ReCaptchaAttribute(actionExecutingContextAdapterFactory, () => new HttpClient(_testHttpMessageHandler));
         }
     }
 }

@@ -11,18 +11,18 @@ namespace ReCaptcha
         private const string RecaptchaApi = "http://www.google.com/recaptcha/api/verify";
 
         private readonly IActionExecutingContextAdapterFactory _actionExecutingContextAdapterFactory;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly Func<HttpClient> _httpClientFunc;
 
-        public ReCaptchaAttribute() : this(new ActionExecutingContextAdapterFactory(), new HttpClientFactory())
+        public ReCaptchaAttribute() : this(new ActionExecutingContextAdapterFactory(), () => new HttpClient())
         {
         }
 
         public ReCaptchaAttribute(
             IActionExecutingContextAdapterFactory actionExecutingContextAdapterFactory,
-            IHttpClientFactory httpClientFactory)
+            Func<HttpClient> httpClientFunc)
         {
             _actionExecutingContextAdapterFactory = actionExecutingContextAdapterFactory;
-            _httpClientFactory = httpClientFactory;
+            _httpClientFunc = httpClientFunc;
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -44,8 +44,8 @@ namespace ReCaptcha
             var postDataAsBytes = Encoding.UTF8.GetBytes(postData);
 
             // Create web request
-            var httpClient = _httpClientFactory.CreateHttpClient();
-
+            var httpClient = _httpClientFunc.Invoke();
+            
             var content = new ByteArrayContent(postDataAsBytes);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
             content.Headers.ContentLength = postDataAsBytes.Length;

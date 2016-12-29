@@ -9,7 +9,7 @@ namespace Recaptcha.UnitTests.GivenAReCaptchaFormSubmission
         [Fact]
         public void ThenTheControllerModelStateShouldBeValid()
         {
-            _testHttpMessageHandler.Content = "true/test";
+            _testHttpMessageHandler.Content = @"true\nsuccess";
             _sut.OnActionExecuting(new ActionExecutingContext());
             _testController.ModelState.IsValid.ShouldBe(true);
         }
