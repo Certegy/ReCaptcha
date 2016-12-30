@@ -93,7 +93,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GivenAReCaptchaFormSubmission\ReCaptchaAttributeTest.cs" />
+    <Compile Include="Contexts\ActionExecutingContextTest.cs" />
+    <Compile Include="GivenAHtmlHelper\WhenGeneratingACaptchaTag.cs" />
+    <Compile Include="Contexts\ReCaptchaAttributeTest.cs" />
+    <Compile Include="GivenAnAction\WhenTheActionExecutes.cs" />
     <Compile Include="GivenAReCaptchaFormSubmission\WhenTheReCaptureIsFilledInCorrectly.cs" />
     <Compile Include="GivenAReCaptchaFormSubmission\WhenTheReCaptureIsNotFilledInCorrectly.cs" />
     <Compile Include="Helpers\TestController.cs" />
