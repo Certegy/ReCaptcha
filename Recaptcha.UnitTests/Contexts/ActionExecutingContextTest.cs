@@ -6,13 +6,14 @@ using NSubstitute;
 
 namespace Recaptcha.UnitTests.Contexts
 {
-    public class ActionExecutingContextTest
+    public abstract class ActionExecutingContextTest
     {
         internal readonly string ExpectedChallengeField = "challenge";
         internal readonly string ExpectedResponseField = "response";
 
-        public ActionExecutingContext ActionExecutingContext { get; private set; }
-        public ActionExecutingContextTest()
+        protected ActionExecutingContext ActionExecutingContext { get; private set; }
+
+        protected ActionExecutingContextTest()
         {
             var controllerContext = Substitute.For<ControllerContext>();
             var actionDescriptor = Substitute.For<ActionDescriptor>();
