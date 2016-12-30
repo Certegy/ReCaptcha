@@ -1,4 +1,5 @@
 using System;
+using ReCaptcha.ResourceSettings;
 
 namespace ReCaptcha
 {

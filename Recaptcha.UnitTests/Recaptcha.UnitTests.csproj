@@ -108,6 +108,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ReCaptcha.ResourceSettings\ReCaptcha.ResourceSettings.csproj">
+      <Project>{d1d24425-4d99-477d-b757-d8fd41848051}</Project>
+      <Name>ReCaptcha.ResourceSettings</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ReCaptcha\ReCaptcha.csproj">
       <Project>{10e22d6a-b002-40a9-b344-d73fe12bc23c}</Project>
       <Name>ReCaptcha</Name>

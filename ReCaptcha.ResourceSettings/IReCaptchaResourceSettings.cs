@@ -1,4 +1,4 @@
-namespace ReCaptcha
+namespace ReCaptcha.ResourceSettings
 {
     public interface IReCaptchaResourceSettings
     {

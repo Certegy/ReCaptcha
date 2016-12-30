@@ -73,7 +73,6 @@
     <Compile Include="DefaultActionExecutingContextAdapter.cs" />
     <Compile Include="Extensions.HtmlHelper.cs" />
     <Compile Include="IActionExecutingContextAdapter.cs" />
-    <Compile Include="IReCaptchaResourceSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReCaptchaAttribute.cs" />
     <Compile Include="ReCaptchaResourceSettingsLocator.cs" />
@@ -94,6 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReCaptcha.ResourceSettings\ReCaptcha.ResourceSettings.csproj">
+      <Project>{d1d24425-4d99-477d-b757-d8fd41848051}</Project>
+      <Name>ReCaptcha.ResourceSettings</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
