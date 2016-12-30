@@ -14,18 +14,18 @@ namespace Recaptcha.UnitTests.GivenAHtmlHelper
     public class WhenGeneratingACaptchaTag : ReCaptchaAttributeTest
     {
         [Theory]
-        [InlineData(Theme.BlackGlass, "blackglass")]
-        [InlineData(Theme.Red, "red")]
-        [InlineData(Theme.White, "white")]
-        [InlineData(Theme.Clean, "clean")]
-        public void ThenItShouldGenerateACorrectlyThemedReCaptchaDiv(Theme t, string theme)
+        [InlineData(Theme.BlackGlass)]
+        [InlineData(Theme.Red)]
+        [InlineData(Theme.White)]
+        [InlineData(Theme.Clean)]
+        public void ThenItShouldGenerateACorrectlyThemedReCaptchaDiv(Theme theme)
         {
             var htmlHelper = new HtmlHelper(new ViewContext(), new ViewPage());
-            var actual = htmlHelper.GenerateCaptcha(t, "callback");
+            var actual = htmlHelper.GenerateCaptcha(theme, "callback");
             var expected = new MvcHtmlString(
                 $"<div id=\"recaptcha_div\" />{Environment.NewLine}" +
                 "<script type=\"text/javascript\">" +
-                    $"Recaptcha.create(\"{TestSettings.ReCaptchaSiteKey}\", \"recaptcha_div\", {{ theme: \"{theme}\" , callback: callback}})" +
+                    $"Recaptcha.create(\"{TestSettings.ReCaptchaSiteKey}\", \"recaptcha_div\", {{ theme: \"{theme.ToString().ToLower()}\" , callback: callback}})" +
                 "</script>"
             );
 
