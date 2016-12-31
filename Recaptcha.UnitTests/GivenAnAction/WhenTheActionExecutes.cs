@@ -1,16 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Web;
-using System.Web.Hosting;
-using System.Web.Mvc;
-using System.Web.Routing;
-using NSubstitute;
-using Recaptcha.UnitTests.Contexts;
+﻿using Recaptcha.UnitTests.Contexts;
 using ReCaptcha;
 using Shouldly;
 using Xunit;
 
-namespace Recaptcha.UnitTests.GivenAnExecutingAction
+namespace Recaptcha.UnitTests.GivenAnAction
 {
     public class WhenTheActionExecutes : ActionExecutingContextTest
     {

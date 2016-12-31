@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Runtime.InteropServices.ComTypes;
 using System.Web.Mvc;
-using NSubstitute;
 using Recaptcha.UnitTests.Contexts;
-using Recaptcha.UnitTests.GivenAReCaptchaFormSubmission;
-using Recaptcha.UnitTests.Helpers;
 using ReCaptcha;
 using Xunit;
 using Shouldly;

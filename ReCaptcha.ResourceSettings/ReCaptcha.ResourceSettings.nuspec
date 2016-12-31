@@ -1,18 +1,14 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>ReCaptcha</id>
+    <id>ReCaptcha.ResourceSettings</id>
     <version>1.0.7</version>
-    <title>ReCaptcha</title>
+    <title>ReCaptcha.ResourceSettings</title>
     <authors>Certegy</authors>
     <owners>Certegy</owners>
     <licenseUrl>https://github.com/Certegy/ReCaptcha/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Certegy/ReCaptcha</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Google ReCaptcha helper</description>
-    <dependencies>
-      <dependency id="ReCaptcha.ResourceSettings" version="1.0.7" />
-      <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
-    </dependencies>
   </metadata>
 </package>
