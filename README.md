@@ -1,4 +1,4 @@
-# ReCaptcha [![Build status](https://ci.appveyor.com/api/projects/status/x52hv1rqkvc9fnb7?svg=true)](https://ci.appveyor.com/project/Certegy/publicholidays-au) [![Coverage Status](https://coveralls.io/repos/github/Certegy/ReCaptcha/badge.svg?branch=master)](https://coveralls.io/github/Certegy/ReCaptcha?branch=master)
+# ReCaptcha [![Build status](https://ci.appveyor.com/api/projects/status/x52hv1rqkvc9fnb7?svg=true)](https://ci.appveyor.com/project/Certegy/recaptcha) [![Coverage Status](https://coveralls.io/repos/github/Certegy/ReCaptcha/badge.svg?branch=master)](https://coveralls.io/github/Certegy/ReCaptcha?branch=master)
 
 ## Overview
 
